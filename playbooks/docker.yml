@@ -5,6 +5,7 @@
   vars: 
      local_home: "{{ lookup('env','HOME') }}"
   tasks:
+   - action: setup 
      # actually, it might just be that $ansible_env is only evaluated once, not once per playbook. Perhaps this is the real issue, it gives the misleading result
    - name: get value of current user
      # This should output /home/vagrant
