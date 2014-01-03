@@ -1,0 +1,24 @@
+---
+- include: base.yml
+- hosts: all
+  sudo: no
+  vars: 
+     local_home: "{{ lookup('env','HOME') }}"
+  tasks:
+     # actually, it might just be that $ansible_env is only evaluated once, not once per playbook. Perhaps this is the real issue, it gives the misleading result
+   - name: get value of current user
+     # This should output /home/vagrant
+     action: debug msg="Value of ansible_env['HOME'] is {{ansible_env['HOME']}}"
+
+   # But this here, gives the correct username, i.e. vagrant
+   - name: Get value of unpriv user 
+     shell: /usr/bin/id -un
+     register: effective_username
+
+   # And this here, gives the correct homedir 
+   - name: Get homedir of unpriv user 
+     shell: "echo $HOME"
+     register: effective_homedir
+
+   - name: debug the effective_username
+     action: debug var="Effective username is {{effective_username.stdout}}, homedir is {{effective_homedir.stdout}}"

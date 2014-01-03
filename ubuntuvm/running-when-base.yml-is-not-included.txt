@@ -1,0 +1,69 @@
+[default] Forcing shutdown of VM...
+[default] Destroying VM and associated drives...
+[default] Running cleanup tasks for 'ansible' provisioner...
+Bringing machine 'default' up with 'virtualbox' provider...
+[default] Importing base box 'precise-server'...
+Progress: 90%[default] Matching MAC address for NAT networking...
+[default] Setting the name of the VM...
+[default] Clearing any previously set forwarded ports...
+[default] Fixed port collision for 22 => 2222. Now on port 2200.
+[default] Clearing any previously set network interfaces...
+[default] Preparing network interfaces based on configuration...
+[default] Forwarding ports...
+[default] -- 22 => 2200 (adapter 1)
+[default] Running 'pre-boot' VM customizations...
+[default] Booting VM...
+[default] Waiting for machine to boot. This may take a few minutes...
+[default] Machine booted and ready!
+[default] The guest additions on this VM do not match the installed version of
+VirtualBox! In most cases this is fine, but in rare cases it can
+cause things such as shared folders to not work properly. If you see
+shared folder errors, please make sure the guest additions within the
+virtual machine match the version of VirtualBox you have installed on
+your host and reload your VM.
+
+Guest Additions Version: 4.1.12
+VirtualBox Version: 4.2
+[default] Running provisioner: ansible...
+
+PLAY [all] ******************************************************************** 
+
+GATHERING FACTS *************************************************************** 
+[0;34m<127.0.0.1> ESTABLISH CONNECTION FOR USER: vagrant[0m
+[0;34m<127.0.0.1> REMOTE_MODULE setup [0m
+[0;34m<127.0.0.1> EXEC ['ssh', '-tt', '-vvv', '-o', 'ForwardAgent=yes', '-o', 'StrictHostKeyChecking=no', '-o', 'Port=2200', '-o', 'IdentityFile=/Users/bryanhunt/.vagrant.d/insecure_private_key', '-o', 'KbdInteractiveAuthentication=no', '-o', 'PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey', '-o', 'PasswordAuthentication=no', '-o', 'User=vagrant', '-o', 'ConnectTimeout=10', '127.0.0.1', "/bin/sh -c 'mkdir -p $HOME/.ansible/tmp/ansible-1388758504.92-174099003005839 && chmod a+rx $HOME/.ansible/tmp/ansible-1388758504.92-174099003005839 && echo $HOME/.ansible/tmp/ansible-1388758504.92-174099003005839'"][0m
+[0;34m<127.0.0.1> PUT /var/folders/st/lz4pqkcn68v0rfzc_qdg6qd00000gn/T/tmpBV7Glu TO /home/vagrant/.ansible/tmp/ansible-1388758504.92-174099003005839/setup[0m
+[0;34m<127.0.0.1> EXEC ['ssh', '-tt', '-vvv', '-o', 'ForwardAgent=yes', '-o', 'StrictHostKeyChecking=no', '-o', 'Port=2200', '-o', 'IdentityFile=/Users/bryanhunt/.vagrant.d/insecure_private_key', '-o', 'KbdInteractiveAuthentication=no', '-o', 'PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey', '-o', 'PasswordAuthentication=no', '-o', 'User=vagrant', '-o', 'ConnectTimeout=10', '127.0.0.1', "/bin/sh -c '/usr/bin/python /home/vagrant/.ansible/tmp/ansible-1388758504.92-174099003005839/setup; rm -rf /home/vagrant/.ansible/tmp/ansible-1388758504.92-174099003005839/ >/dev/null 2>&1'"][0m
+[0;32mok: [default][0m
+
+TASK: [get value of current user] ********************************************* 
+[0;34m<127.0.0.1> ESTABLISH CONNECTION FOR USER: vagrant[0m
+[0;32mok: [default] => {
+    "msg": "Value of ansible_env['HOME'] is /home/vagrant"
+}[0m
+
+TASK: [Get value of unpriv user] ********************************************** 
+[0;34m<127.0.0.1> ESTABLISH CONNECTION FOR USER: vagrant[0m
+[0;34m<127.0.0.1> REMOTE_MODULE command /usr/bin/id -un #USE_SHELL[0m
+[0;34m<127.0.0.1> EXEC ['ssh', '-tt', '-vvv', '-o', 'ForwardAgent=yes', '-o', 'StrictHostKeyChecking=no', '-o', 'Port=2200', '-o', 'IdentityFile=/Users/bryanhunt/.vagrant.d/insecure_private_key', '-o', 'KbdInteractiveAuthentication=no', '-o', 'PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey', '-o', 'PasswordAuthentication=no', '-o', 'User=vagrant', '-o', 'ConnectTimeout=10', '127.0.0.1', "/bin/sh -c 'mkdir -p $HOME/.ansible/tmp/ansible-1388758507.42-58734775467237 && chmod a+rx $HOME/.ansible/tmp/ansible-1388758507.42-58734775467237 && echo $HOME/.ansible/tmp/ansible-1388758507.42-58734775467237'"][0m
+[0;34m<127.0.0.1> PUT /var/folders/st/lz4pqkcn68v0rfzc_qdg6qd00000gn/T/tmpHsPsWH TO /home/vagrant/.ansible/tmp/ansible-1388758507.42-58734775467237/command[0m
+[0;34m<127.0.0.1> EXEC ['ssh', '-tt', '-vvv', '-o', 'ForwardAgent=yes', '-o', 'StrictHostKeyChecking=no', '-o', 'Port=2200', '-o', 'IdentityFile=/Users/bryanhunt/.vagrant.d/insecure_private_key', '-o', 'KbdInteractiveAuthentication=no', '-o', 'PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey', '-o', 'PasswordAuthentication=no', '-o', 'User=vagrant', '-o', 'ConnectTimeout=10', '127.0.0.1', "/bin/sh -c '/usr/bin/python /home/vagrant/.ansible/tmp/ansible-1388758507.42-58734775467237/command; rm -rf /home/vagrant/.ansible/tmp/ansible-1388758507.42-58734775467237/ >/dev/null 2>&1'"][0m
+[0;33mchanged: [default] => {"changed": true, "cmd": "/usr/bin/id -un ", "delta": "0:00:00.002814", "end": "2014-01-03 14:15:10.552412", "rc": 0, "start": "2014-01-03 14:15:10.549598", "stderr": "", "stdout": "vagrant"}[0m
+
+TASK: [Get homedir of unpriv user] ******************************************** 
+[0;34m<127.0.0.1> ESTABLISH CONNECTION FOR USER: vagrant[0m
+[0;34m<127.0.0.1> REMOTE_MODULE command echo $HOME #USE_SHELL[0m
+[0;34m<127.0.0.1> EXEC ['ssh', '-tt', '-vvv', '-o', 'ForwardAgent=yes', '-o', 'StrictHostKeyChecking=no', '-o', 'Port=2200', '-o', 'IdentityFile=/Users/bryanhunt/.vagrant.d/insecure_private_key', '-o', 'KbdInteractiveAuthentication=no', '-o', 'PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey', '-o', 'PasswordAuthentication=no', '-o', 'User=vagrant', '-o', 'ConnectTimeout=10', '127.0.0.1', "/bin/sh -c 'mkdir -p $HOME/.ansible/tmp/ansible-1388758510.59-237192356823752 && chmod a+rx $HOME/.ansible/tmp/ansible-1388758510.59-237192356823752 && echo $HOME/.ansible/tmp/ansible-1388758510.59-237192356823752'"][0m
+[0;34m<127.0.0.1> PUT /var/folders/st/lz4pqkcn68v0rfzc_qdg6qd00000gn/T/tmpnAaRUv TO /home/vagrant/.ansible/tmp/ansible-1388758510.59-237192356823752/command[0m
+[0;34m<127.0.0.1> EXEC ['ssh', '-tt', '-vvv', '-o', 'ForwardAgent=yes', '-o', 'StrictHostKeyChecking=no', '-o', 'Port=2200', '-o', 'IdentityFile=/Users/bryanhunt/.vagrant.d/insecure_private_key', '-o', 'KbdInteractiveAuthentication=no', '-o', 'PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey', '-o', 'PasswordAuthentication=no', '-o', 'User=vagrant', '-o', 'ConnectTimeout=10', '127.0.0.1', "/bin/sh -c '/usr/bin/python /home/vagrant/.ansible/tmp/ansible-1388758510.59-237192356823752/command; rm -rf /home/vagrant/.ansible/tmp/ansible-1388758510.59-237192356823752/ >/dev/null 2>&1'"][0m
+[0;33mchanged: [default] => {"changed": true, "cmd": "echo $HOME ", "delta": "0:00:00.001371", "end": "2014-01-03 14:15:11.295883", "rc": 0, "start": "2014-01-03 14:15:11.294512", "stderr": "", "stdout": "/home/vagrant"}[0m
+
+TASK: [debug the effective_username] ****************************************** 
+[0;34m<127.0.0.1> ESTABLISH CONNECTION FOR USER: vagrant[0m
+[0;32mok: [default] => {
+    "Effective username is vagrant, homedir is /home/vagrant": "{{ Effective username is vagrant, homedir is /home/vagrant }}"
+}[0m
+
+PLAY RECAP ******************************************************************** 
+[0;33mdefault[0m                    : [0;32mok[0m[0;32m=[0m[0;32m5[0m    [0;33mchanged[0m[0;33m=[0m[0;33m2[0m    unreachable=0    failed=0   
+
